@@ -33,6 +33,7 @@ public class Calculator5 {
                 break;
             default:
                 System.out.println("Введенный символ не равен + - * или /");
+                break;
         }
 
         //Вывод результата
