@@ -2,7 +2,7 @@ package ru.appline;
 
 import java.util.Scanner;
 
-public class CompareNumbers10 {
+public class CompareNumbers11 {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
