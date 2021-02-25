@@ -6,7 +6,7 @@ public class Final1Converter {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("Данный конвертнер переводит рубли в доллары");
+        System.out.println("Данный конвертер переводит рубли в доллары");
 
         System.out.print("Введите текущий курс доллара (1 доллар): ");
         double courseDollar = scan.nextDouble();; // курс доллара
