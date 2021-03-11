@@ -19,7 +19,7 @@ public class Final3DifChar {
             arrStr[i] = scan.nextLine();
         }
 
-        int countDif; // количество различных символов
+        int countDif = 0; // количество различных символов
         int maxCountDif = 0; // максимальное количество различных символов
         int iMaxDif = 0; //индекс строки с маскимальным количеством различных символов
 
@@ -27,34 +27,34 @@ public class Final3DifChar {
         for (int i = 0; i < countStr; i++) {
             //если строка не пустая
             if (!arrStr[i].isEmpty()) {
-                countDif = 0;
+                countDif = 1;
+                boolean isSameChar;
                 char[] wordToChar = arrStr[i].toCharArray(); // Преобразуем строку str в массив символов (char)
-                //проверяем первый символ строки
-                if (wordToChar[0] != '\u0020') { // проверка на наличие пробела
-                    countDif++;
-                }
-                //проверяем остальные символы строки
+                char[] diffChar = new char[wordToChar.length]; // Массив, состоящий только из различных символов
+                //проверяем символы строки
+                diffChar[0] = wordToChar[0];
                 for (int j = 1; j < wordToChar.length; j++) {
+                    isSameChar = false;
                     int k = 0;
-                    boolean isCharDif = true; //символы отличаются
-                    while ( (j > k) && (isCharDif) ) {
-                        if (wordToChar[j] != '\u0020') { // проверка на наличие пробела
-                            if (wordToChar[j] == wordToChar[k]){
-                                isCharDif = false;
-                            }
+                    while ((k < countDif) && (isSameChar == false)) {
+                        if (wordToChar[j] != diffChar[k]) {
+                            k++;
+                        } else {
+                            isSameChar = true;
                         }
-                        k++;
                     }
-                    if (isCharDif){
+                    if (isSameChar == false) {
                         countDif++;
+                        diffChar[countDif - 1] = wordToChar[j];
                     }
-                }
-                if (countDif > maxCountDif){
-                    maxCountDif = countDif;
-                    iMaxDif = i;
                 }
             }
+            if (countDif > maxCountDif) {
+                maxCountDif = countDif;
+                iMaxDif = i;
+            }
         }
+
         if (maxCountDif != 0){
            System.out.print("Строка с максимальным количеством различных символов: " + arrStr[iMaxDif]);
         }
